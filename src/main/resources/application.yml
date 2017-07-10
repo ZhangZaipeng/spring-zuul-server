@@ -1,0 +1,21 @@
+server:
+  port: 8769
+spring:
+  application:
+    name: spring-zuul-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://139.199.209.16:8761/eureka/
+zuul:
+  routes:
+    api_user:
+      path: /api_user/**
+      serviceId: spring-service-user
+    api_order:
+      path: /api_order/**
+      serviceId: spring-service-order
+
+# 首先向eureka注册自己，端口为8769，
+# 服务名为service-zuul；以/api-a/ 开头的请求都指向service-ribbon；
+# 以/api-b/开头的请求都指向service-feign；
