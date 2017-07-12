@@ -1,8 +1,10 @@
+spring:
+  profiles:
+    active: dev
+---
 server:
   port: 8769
-spring:
-  application:
-    name: spring-zuul-server
+  contextPath: /zuul
 eureka:
   client:
     service-url:
